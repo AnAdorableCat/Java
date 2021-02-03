@@ -10,3 +10,4 @@
 
 [某粉色APP](https://www.bilibili.com/)
 
+![扫码领10元](README_files/1.png)
