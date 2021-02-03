@@ -1,3 +1,8 @@
+
+欢迎来到小猫咪的主页
+-
+![小猫咪](README_files/1.jpg)
+
 &nbsp;网址大全
 -
 &nbsp;&nbsp;&nbsp;[最初的起点](http://127.0.0.1:8848/Rookie/day01/01-hello.html)
@@ -10,7 +15,7 @@
 
 &nbsp;&nbsp;&nbsp;[某粉色APP](https://www.bilibili.com/)
 
-&nbsp;活动专区
+&nbsp;福利专区
 -
 &nbsp;&nbsp;&nbsp;&nbsp;扫码领十元
 
