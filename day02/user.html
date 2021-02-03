@@ -4,6 +4,10 @@
 		<meta charset="utf-8">
 		<title>圆形图片</title>
 		<style>
+			body{
+				background-color: #FFC0CB;
+				width: fit-content;
+			}
 			#user{
 				border: 1px solid;
 				width: 250px;
@@ -14,11 +18,29 @@
 			div{
 				font-size: 20px;
 			}
+			.movebox{
+				animation: movebox 0.3s infinite;
+				position: relative;
+			}
+			@keyframes movebox{
+				from{left:250px}
+				to{left:0px}
+			}
 		</style>
 	</head>
 	<body>
 		<div id="user"></div>
-		<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是作者的主页<br/>
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是陈皮的主页
 		</div>
+		<hr />
+		<div style="color: cornflowerblue;width: 500px;">
+			喜欢上传一些奇奇怪怪的东西<br />
+			喜欢作者的创作内容的话<br />
+			可以点击支持作者<br />
+			支持作者哟<br />
+			万分感谢<br />
+		</div>
+		<img src="images/滑稽.jpg" class="movebox" />
 	</body>
 </html>
