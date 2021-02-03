@@ -12,6 +12,6 @@
 
 &nbsp;活动专区
 -
-&nbsp;&nbsp;&nbsp;&nbsp;
-扫码领十元
+&nbsp;&nbsp;&nbsp;&nbsp;扫码领十元
+
 ![扫码领10元](README_files/1.png)
