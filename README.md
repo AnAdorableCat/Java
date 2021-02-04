@@ -26,6 +26,8 @@
 -
 ![猛虎下山](README_files/4.png)
 -
+![一知半解](day02/images/一知半解.png)
+-
 &nbsp;福利专区
 -
 &nbsp;&nbsp;&nbsp;&nbsp;扫码领十元

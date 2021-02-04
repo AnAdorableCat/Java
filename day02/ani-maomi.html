@@ -10,19 +10,23 @@
 				background-image: url(images/小猫咪.jpg);
 				border-radius: 0px;
 				position: relative;
-				animation: run 0.001s infinite;
+				animation: go 0.1s linear infinite;
 			}
 			.mao:hover{
-				animation: go 0.001s infinite;
+				animation: run 0.1s linear infinite;
 			}
 			@keyframes run{
-				from{left: 0px; top: 0px;rotate(0deg);}
-				to{left: 0px; top: 0px;transform: rotate(360deg);}
+				from{left: auto; top: auto;rotate(0deg);}
+				to{left: auto; top: auto;transform: rotate(360deg);}
 			}
 			@keyframes go{
-				from{left: 0px; top: 0px;rotate(0deg);}
-				to{left: 100px; top: 0px;transform: rotate(360deg);}
+				0% {top:0px; left:0px;}
+				25% {top:0px; left:1000px;}
+				50% {top:1000px; left:1000px;}
+				75% {top:1000px; left:0px; }
+				100% {top:0px; left:0px; }
 			}
+			
 			
 		</style>
 	</head>
