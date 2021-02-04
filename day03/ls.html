@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h3>JavaScript访问DOM数案例</h3>
+		<h5>JavaScript使用api的4种方式：访问h3标签，a标签，获取它们内容。</h5>
+		<h5>tagName、className、name、id</h5>
+		
+		<a href="http://www.taobao.com" target="_blank">淘宝</a>
+		<a class="jd" href="http://www.jd.com" target="_blank">京东</a>
+		<a name="pdd" href="http://www.pinduoduo.com" target="_blank">拼多多</a>
+		<a id="cgb" href="http://act.codeboy.com" target="_blank">java培优</a>
+		
+		<!-- 页面上使用javascript，通过script标签来实现
+			 type="text/javascript" 新标准可以省略，默认
+			 scr="" 引入外部js jquery.js
+			 js中可以使用双引号或者单引号来把字符串来括起来
+			 
+			 js出错是不提示，F12里面console控制台才能看到错误
+		 -->
+		<script>
+			//window.alert('使用js获取页面元素内容');  //BOM 中提供弹出框api
+			
+			//获取页面a标签，按tagName方式返回是一个数组
+			//第一个元素: arr[0],下标从0开始
+			//谷歌浏览器提供console方式，必须f12查看
+			
+			//第一种方式：tagname方式
+			console.log( document.getElementsByTagName("a")[0].innerText ); //a标签内容
+			console.log( document.getElementsByTagName("a")[0].href ); //a标签的href属性
+			
+			//第二种方式：classname方式
+			console.log( document.getElementsByClassName("jd")[0].innerText );
+			console.log( document.getElementsByClassName("jd")[0].href );
+			
+			//第三种方式：name方式
+			console.log( document.getElementsByName("pdd")[0].innerText )
+			console.log( document.getElementsByName("pdd")[0].href );
+		</script>
+	</body>
+</html>

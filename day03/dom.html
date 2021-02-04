@@ -6,9 +6,30 @@
 	</head>
 	<body>
 		<h3>JavaScript访问DOM树案例</h3>
-		<a href="" target="_blank">淘宝</a>
-		<a href="" target="_blank">京东</a>
-		<a href="" target="_blank">拼多多</a>
-		<a href="" target="_blank"></a>
+		<a href="http://www.taobao.com" target="_blank">淘宝</a>
+		<a class="jd" href="http://jd.com" target="_blank">京东</a>
+		<a name="pdd" href="http://pinduoduo.com" target="_blank">拼多多</a>
+		<a id="cgb" href="http://act.codeboy.com" target="_blank">Java培优</a>
+		<script>
+			console.log("gun");
+			
+			console.log(document.getElementsByTagName("a")[0].innerText);
+			console.log(document.getElementsByTagName("a")[0].href);
+			
+			console.log(document.getElementsByClassName("jd")[0].innerText);
+			console.log(document.getElementsByClassName("jd")[0].href);
+			
+			console.log(document.getElementsByName("pdd")[0].innerText);
+			console.log(document.getElementsByName("pdd")[0].href);
+			
+			console.log(document.getElementById("cgb").innerText);
+			console.log(document.getElementById("cgb").href);
+			
+			var a = document.getElementsByTagName("a")[0];
+			a.innerText="百度";
+			a.href="http://baidu.com";
+			
+		</script>
+		
 	</body>
 </html>
