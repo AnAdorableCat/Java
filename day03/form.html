@@ -3,42 +3,40 @@
 	<head>
 		<meta charset="utf-8">
 		<title>表单练习</title>
-		
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
 	</head>
 	<body>
-		<div>
-			<h1>学生信息管理系统</h1>
-			<div>
-				<label style="font-weight: bold;">姓名:</label><br />
-				<input type="text" name="name" id="name" style="height: 30px;width: 300px;padding-left: 10px;"
+		<div class="container">
+			<h3>学生信息管理系统</h3>
+			<div class="form-group">
+				<label for="name">姓名:</label>
+				<input type="text" name="name" id="name"
+				class="form-control"
 				placeholder="请输入姓名"
 				/>
 			</div>
-			<br />
-			<div>
-				<label style="font-weight: bold;">年龄:</label><br />
-				<input type="number" name="age" id="age" style="height: 30px;width: 300px;padding-left: 10px; font-size: 10px;"
+			<div class="form-group">
+				<label for="age">年龄:</label>
+				<input type="number" name="age" id="age"
+				class="form-control"
 				placeholder="请输入年龄"
 				/>
 			</div>
-			<br />
-			<div>
-				<label style="font-weight: bold;">性别:</label><br />
+			<div class="form-group">
+				<label>性别:</label>
 				<input type="radio" name="sex" id="sex" />男
 				<input type="radio" name="sex" id="sex" />女
 				<input type="radio" name="sex" id="sex" />秀吉
 			</div>
-			<br />
-			<div>
-				<label style="font-weight: bold;">爱好:</label><br />
+			<div class="form-group">
+				<label>爱好:</label>
 				<input type="checkbox" name="hobby" id="hobby" />乒乓球
 				<input type="checkbox" name="hobby" id="hobby" />爬山
 				<input type="checkbox" name="hobby" id="hobby" />唱歌
 			</div>
-			<br />
-			<div>
-				<label>学历:</label><br />
-				<select name="edu" id="edu" style="width: 315px; height: 35px;">
+			<div class="form-group">
+				<label>教育水平:</label>
+				<select name="edu" id="edu">
 					<option value="1">胎教</option>
 					<option value="2">睡前故事</option>
 					<option value="3">幼儿园</option>
@@ -52,7 +50,7 @@
 					<option value="10">博士后</option>
 				</select>
 			</div>
-			<div>
+			<div >
 				<input type="button" value="保存" />
 				<input type="button" value="取消" />
 			</div>
