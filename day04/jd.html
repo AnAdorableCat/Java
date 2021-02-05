@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>编号: <span id="itemId"></span></div>
+		<div>价格: <span id="itemPrice" ></span></div>
+	</body>
+	<script>
+		var jd = '[{"p":"2398.00","op":"2598.00","cbf":"0","id":"J_100010566508","m":"2699.00"}]'
+		console.log(jd);
+		
+		var items = JSON.parse(jd);
+		console.log(items[0]);
+		console.log(items[0].p);
+		console.log(items[0].id);
+				
+		$("#itemId").text( items[0].id );
+		$("#itemId").css("color", "blue");
+				
+		$("#itemPrice").text( items[0].p );
+		$("#itemPrice").css("color", "red");
+		
+	</script>
+</html>

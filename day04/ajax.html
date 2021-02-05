@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>商品编号:<span id="itemId"></span></div>
+		<div>商品价格:<span id="itemPrice"></span></div>
+	</body>
+	<script>
+		$.ajax({
+			type:"POST",
+			url:"https://p.3.cn/prices/mgets",
+			data:{
+				"skuIds":"J_70953309519"
+			},
+			contentType:"application/json;charset=utf-8",
+			dataType:"jsonp",
+			success:function(data){
+				console.log("访问成功")
+				console.log(data)
+				
+				var item = data[0];
+				
+				var itemId = item.id;
+				var itemPrice = item.p;
+				console.log(itemId);
+				console.log(itemPrice);
+				
+				$("#itemId").text(itemId);
+				$("#itemPrice").text(itemPrice);
+				
+				var id = $("#itemId");
+				id.text(itemId);
+				id.css("color","blue")
+				
+				var price = $("#itemPrice");
+				price.text(itemPrice);
+				price.css
+				
+			},
+			error:function(e){
+				console.log("访问失败")	
+			}
+		})
+	</script>
+	
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登陆界面</title>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div class="container" style="width: 300px; margin-top: 50px;">
+			<fieldset>
+				<legend>登录</legend>
+				<div class="form-group">
+					<label for="username">用户名:</label>
+					<input class="form-control" 
+					type="text" 
+					name="username" 
+					id="username" 
+					autocomplete="off"
+					/>
+					
+				</div>
+				<div class="form-group">
+					<label>密码:</label>
+					<input class="form-control" 
+					type="password" 
+					name="password" 
+					id="password" />
+					
+					<div>
+						<button id="btnSave" class="btn btn-primary" onclick="save()">保存</button>
+						<button id="btnClear" class="btn btn-danger" onclick="clearall()">取消</button>
+						
+					</div>
+					
+				</div>
+			</fieldset>
+		</div>
+	</body>
+	<script>
+	
+	$("#btnSave").click(function(){
+		var username = $("#username").val();
+		var password = $("#password").val();
+		console.log(username+","+password)
+	})
+	
+	$("#btnClear").click(function(){
+		$("#username").val("")
+		$("#password").val("")
+	})
+	
+	</script>
+</html>
