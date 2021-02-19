@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p v-show="age>=18">成年</p>
+			<p v-show="age<18">未成年</p>
+			
+			<p v-if="age>=18">成年</p>
+			<p v-if="age<18">未成年</p>
+			
+			<hr>
+			<p v-if="salary<=10">普通阶层</p>
+			<p v-else-if="salary<=500">中产阶层</p>
+			<p v-else="salary>500">富豪阶层</p>
+			
+			<hr> <!-- 类似java中foreach 循环，in后面就是集合，o代码每次遍历的当前值
+				o,i o代表当前行内容，i代表当前索引值，注意顺序，Vue定死顺序
+			 -->
+			<p v-for="o in hobby">{{o}}</p>
+			<p v-for="o,i in hobby">{{i}}-{{o}}</p>
+			
+			<hr>
+			<button v-on:click="show">点我</button>
+			<button v-on:click="show()">点我</button>
+			<button @click="show()">点我</button>
+			
+			<hr>
+			<!--  插值表达式不能用作属性，值未解析 -->
+			<a href="{{site.url}}">{{site.name}}</a>
+			<a href="site.url">{{site.name}}</a>
+			
+			<!-- v-bind指令，把后面内容就不是普通字符串，而是vue变量 -->
+			<a v-bind:href="site.url">{{site.name}}</a>
+			<a :href="site.url">{{site.name}}</a>
+			
+			<!-- v-text指令它纯文本输出，v-html翻译html标签
+				div.innerText，div.innerHTML
+			 -->
+			<p v-text="sysname"></p>
+			<p v-html="sysname"></p>
+			<br><br><br><br><br>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				sysname: "<b>京淘</b>电商平台",
+				age: 16,
+				salary: 900,
+				hobby: ["乒乓","爬山","唱歌"],
+				site: {
+					name: "java培优官网",
+					url: "http://act.codeboy.com"
+				}
+			},
+			methods:{
+				show: function(){
+					console.log("show method");
+				}
+			}
+		});
+	</script>
+</html>

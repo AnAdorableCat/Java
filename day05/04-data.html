@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">{{msg}}{{address}}</div>
+	</body>
+	<script>
+		//data形式有三种，1)对象写法，2)函数写法，3）ES6（js6）类似函数(死记)
+		new Vue({
+			el: "#app",
+			// data: {
+			// 	msg: "hello VueJS!"
+			// }
+			
+			// data: function(){  //函数声明，函数有返回值
+			// 	return {	//返回一个js对象
+			// 		msg: "hello Vue function"
+			// 	}
+			// }
+			
+			data(){
+				return {
+					msg: "hello Vue es6",
+					address: "北京"
+				}
+			}
+		});
+	</script>
+</html>

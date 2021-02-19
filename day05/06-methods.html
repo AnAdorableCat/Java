@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue定义函数，调用函数</title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+			<!-- 函数的调用，必须用Vue的事件来调用 -->
+			{{say()}}
+			<hr>
+			<button @click="whatColor('green1')">点我有惊喜</button>
+			<button @click="whatColor('green2')">点我有惊吓</button>
+		</div>
+	</body>
+	<script>
+		// function whatColor(color){
+		// 	alert(color);
+		// }
+		//所有方法在Vue对象中声明
+		
+		new Vue({
+			el: "#app",
+			data: {
+				msg: "hello VueJS!"
+			},
+			methods:{		//所有的函数必须在这里定义
+				//函数的声明
+				say: function(){
+					//alert("say hi");
+					console.log("say method");
+				},
+				whatColor: function(color){
+					//return color;
+					alert("vue "+color);
+				}
+			}
+		});
+	</script>
+</html>

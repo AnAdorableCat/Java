@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		
+		<style>
+			/* 这个指令页面选择器，有这个属性就执行这个样式 */
+			[v-cloak]{
+				display: none;  //隐藏
+			}
+		</style>
+	</head>
+	<body>
+		<h3>姓名（单值）、年龄（单值）、爱好（数组）、女朋友（对象）、豪车（对象数组）</h3>
+		<div id="app" v-cloak>
+				{{name}}、{{age}}
+				<hr>
+				{{hobby}}、{{hobby[0]}}、{{hobby[ hobby.length-1]}}
+				<hr>
+				{{girl.name}}、{{girl.age}}、{{girl}}
+				<hr>
+				{{cars[0].name}}、{{cars[0].color}}<br>
+				{{cars[2].name}}、{{cars[2].color}}<br>
+				{{cars}}
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				msg: "hello VueJS!",
+				name: "陈强",	//字符串类型两边使用双引号或者单引号
+				age: 18, 	//整数直接写
+				hobby: ["乒乓", "爬山", "唱歌"], //字符串数组
+				girl: {		//对象，有两个属性
+					name: "李梅",
+					age: 16
+				},
+				cars: [
+						{ name:"劳斯莱斯", color:"white" },
+						{ name:"奔驰", color:"red" },
+						{ name:"宝马", color:"green" }
+				]
+			}
+		});
+	</script>
+</html>

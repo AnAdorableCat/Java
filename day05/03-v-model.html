@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<h1>{{address}}</h1>
+		<div id="app">
+			<h2>{{address}}</h2>
+			<h3>{{address}}</h3>
+			<h4>{{address}}</h4>
+			<h5>{{address}}</h5>
+			<h6>{{address}}</h6>
+			
+			<!-- 要操纵Vue的数据，必须设置一个指令 v-model 
+				1、操纵页面元素View，数据Model发生变化
+				2、操纵数据Model，页面元素内容View随之改变
+				Vue和js、jquery有本质区别：
+				1、js它专门有一套api需要学习，需要额外记忆
+				2、jQuery本质封装js，简化js写法，又独创了一套api，需要额外记忆
+				3、Vue完全不同思路，只需操作数据，不同的组件操作方式完全相同，只需要操作数据，无需额外记忆
+				Vue替代js和jQuery
+			-->
+			<input type="text" id="address" v-model="address"/>
+		</div>
+	</body>
+	<script>
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				address: "北京天安门"
+			}
+		});
+	</script>
+</html>

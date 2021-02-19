@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<h3>
+			开发vue页面步骤：<br>
+			1、单独导入vue.js<br>
+			2、按vue的语法结构去写代码，少量api new Vue()
+			3、body中加一个div，所有内容要写在这个div中，习惯id="app"
+			两个大括号括起来值必须在data中进行定义，就可以访问，这个写法插值表达式
+		</h3>
+		
+		<div id="app">
+			{{msg}}
+			{{msg}}
+		</div>
+	</body>
+	<script>
+		//准备数据
+		var data = {
+			msg: "hello vue js "
+		}
+		
+		//创建一个js对象，这个参数结构是Vue定死
+		var p = {
+			el: "#app",		//固定写死，el是element，挂载点，和页面id=app相对应
+			data: data			//vue管理数据，固定写死 data，后面data js对象
+		}
+		var vm = new Vue(p); //这里参数是一个js对象
+	</script>
+</html>
