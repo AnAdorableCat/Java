@@ -5,14 +5,27 @@
 		<title>表单练习</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 	</head>
+	<style>
+		  .grid{
+	            float: left;
+	        }
+	</style>
 	<body>
-		<div class="container">
+		<form action="http://localhost:8848/stu/add" method="get">
+			<input type="hidden" name="pid" id="pid" value="666 " />
+		<div class="container" >
 			<h3>学生信息管理系统</h3>
 			<div class="form-group">
 				<label for="name">姓名:</label>
 				<input type="text" name="name" id="name"
 				class="form-control"
 				placeholder="请输入姓名"
+				/>
+			</div>
+			<div class="form-group">
+				<label for="eduTime">上学时间:</label>
+				<input type="date" name="eduTime" id="eduTime"
+				class="form-control"
 				/>
 			</div>
 			<div class="form-group">
@@ -25,25 +38,25 @@
 			<div class="form-group">
 				<label>性别:</label>
 				<div class="radio-inline">
-				<input type="radio" name="sex" id="sex" />男
+				<input type="radio" name="sex" id="sex" value="1" />男
 				</div>
 				<div class="radio-inline">
-				<input type="radio" name="sex" id="sex" />女
+				<input type="radio" name="sex" id="sex" value="0" />女
 				</div>
 				<div class="radio-inline">
-				<input type="radio" name="sex" id="sex" />秀吉
+				<input type="radio" name="sex" id="sex" value="3" />秀吉
 				</div>
 			</div>
 			<div class="form-group">
 				<label>爱好:</label>
 				<div class="checkbox-inline">
-				<input type="checkbox" name="hobby" id="hobby" />乒乓球
+				<input type="checkbox" name="hobby" id="hobby" value="乒乓球" />乒乓球
 				</div>
 				<div class="checkbox-inline">
-				<input type="checkbox" name="hobby" id="hobby" />爬山
+				<input type="checkbox" name="hobby" id="hobby" value="爬山" />爬山
 				</div>
 				<div class="checkbox-inline">
-				<input type="checkbox" name="hobby" id="hobby" />唱歌
+				<input type="checkbox" name="hobby" id="hobby" value="唱歌" />唱歌
 				</div>
 			</div>
 			<div class="form-group">
@@ -63,9 +76,10 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<input class="btn btn-primary" type="button" value="保存" />
+				<input class="btn btn-primary" type="submit" name="submit" value="提交" />
 				<input class="btn btn-danger" type="button" value="取消" />
 			</div>
 		</div>
+		</form>
 	</body>
 </html>
