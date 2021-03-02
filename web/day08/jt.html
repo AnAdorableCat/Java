@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<script src="js/vue.js"></script>
+		<script src="./js/axios.min.js"></script>
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<table class="table table-hover">
+				<caption>京淘电商平台</caption>
+				<thead>
+					<tr>
+						<th>标题</th>
+						<th>卖点</th>
+						<th>价格</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="o in msg">
+						<td>{{o.title}}</td>
+						<td>{{o.sellPoint}}</td>
+						<td>{{o.price}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				msg: "hi vue"
+			},
+			mounted() {
+				axios({
+						method: "post",
+						url: "http://localhost:8090/item/list?num=3"
+					})
+					.then(
+						res => {
+							this.msg = res.data
+							console.log(res.data)
+						}
+					)
+			}
+		})
+	</script>
+</html>
