@@ -117,65 +117,66 @@ public Car cn.tedu.car.controller.CarController get(){}	不拦截
 5）环绕通知 @Around("aopPointCut()")  
 6）JoinPoint连接点：切面切是哪个类，这些信息就藏着joinPoint类中  
 ProcedingJoinPoint实现类，获取类名和方法名  
- 
- 三大框架mybatis
- hibernate
- J2EE，EJB框架，hibernate负责java和数据库之间转换
- ORM，object relation mapping，把数据库jdbc，ResultSet结果集，它不是java中model对象
- model（pojo）属性，代表数据
- ResultSet（rs.getString("name")； hibernate/mybatis name:"tony"
- 
- hibernate完全面向对象，HQL，对象方式来查询数据，内部最终会转换SQL，利用jdbc操作数据
- SQL: select * from tb_item
- HQL: from Item
- 
- ibatis，mybatis 投身google，半面向对象，直接拼接SQL（一套规则），直接操作jdbc
- 
- 软件行业发展，系统越做越大，性能考量越来越重要！mybatis性能高！
- hibernate 对象状态，OGNL表达式，非常难控制，黑客就利用漏洞百出，
- 业界规划：小型项目使用hibernate，大型项目使用mybatis
- 
- mybatis怎么完成orm映射，它一套规则
- jdbc：
- String sql = "select * from tb_item";
- preparedStatement对象，CRUD方法，executeQuery(sql)
- 查询：ResultSet对象
- mybatis:
- 把所有写sql的地方放入xml文件中，ItemMapper.xml
- Item.java POJO
- 
- <select id="find" resultType="List<cn.tedu.jt.Item>">
- 	select * from tb_item
- </select>
- 按mybatis规则写完后，它底层自动将sql查询完成结果集，自动保存对象中
- 返回是一个集合，只声明集合元素类型，默认List集合
- 
- mybatis 结构
- ![](README_files/1.jpg)
- 
- 开发的步骤：
- 1）数据库 jtdb-small.sql（res库/sql/）
- 2）pojo对象 Item.java
- 3）映射文件 ItemMapper.xml（文件头）namespace
- 4）核心配置文件 sqlMapConfig.xml
- 测试类
- 读取配置文件：Resourses ibatis提供，返回InputStream
- SqlSessionFactory factory = 读取sqlMapConfig.xml，builder创建工厂对象
- SqlSession执行sql
- statement = namespace.id（find）
- 按规则写完，mybatis会把这些按约定规则串接，底层执行xml里sql最终映射到java对象
- 返回值java对象（model）
- 
- 创建项目：springboot官网产生pom.xml
- 新增依赖：mybatis/web/mysql驱动
- 
- 创建上面的两个配置文件，如果没有提示，配置一下DTD文件
- DTD文件描述xml由哪些标签组成，它会和eclipse配置形成提示
- 1）sqlMapConfig.xml (配置后不生效 eclipse)
- 2) ItemMapper.xml
- 
- 最爱犯错：
- Mapped Statements collection does not contain value for cn.tedu.jt.mapper.ItemMapper.find
- 1）命名空间和statement参数写的一致不一致
- 2）sqlMapConfig.xml中忘了导入xml文件
- 3）调用statement别写错了
+
+### 三大框架mybatis
+hibernate   
+J2EE，EJB框架，hibernate负责java和数据库之间转换  
+ORM，object relation mapping，把数据库jdbc，ResultSet结果集，它不是java中model对象  
+model（pojo）属性，代表数据  
+ResultSet（rs.getString("name")； 		hibernate/mybatis		name:"tony"  
+
+hibernate完全面向对象，HQL，对象方式来查询数据，内部最终会转换SQL，利用jdbc操作数据  
+SQL:		select * from tb_item  
+HQL:		from Item  
+
+ibatis，mybatis 投身google，半面向对象，直接拼接SQL（一套规则），直接操作jdbc  
+
+软件行业发展，系统越做越大，性能考量越来越重要！mybatis性能高！  
+hibernate 对象状态，OGNL表达式，非常难控制，黑客就利用漏洞百出，  
+业界规划：小型项目使用hibernate，大型项目使用mybatis  
+
+### mybatis怎么完成orm映射，它一套规则
+jdbc：  
+String sql = "select * from tb_item";  
+preparedStatement对象，CRUD方法，executeQuery(sql)  
+查询：ResultSet对象  
+mybatis:  
+把所有写sql的地方放入xml文件中，ItemMapper.xml  
+Item.java POJO  
+```
+<select id="find" resultType="List<cn.tedu.jt.Item>">
+	select * from tb_item
+</select>
+```
+按mybatis规则写完后，它底层自动将sql查询完成结果集，自动保存对象中  
+返回是一个集合，只声明集合元素类型，默认List集合  
+
+### mybatis 结构
+![](README_files/1.jpg)
+
+开发的步骤：  
+1）数据库 jtdb-small.sql（res库/sql/）  
+2）pojo对象 Item.java  
+3）映射文件 ItemMapper.xml（文件头）namespace  
+4）核心配置文件 sqlMapConfig.xml  
+测试类  
+		读取配置文件：Resourses ibatis提供，返回InputStream  
+		SqlSessionFactory factory = 读取sqlMapConfig.xml，builder创建工厂对象  
+		SqlSession执行sql  
+		statement = namespace.id（find）  
+按规则写完，mybatis会把这些按约定规则串接，底层执行xml里sql最终映射到java对象  
+返回值java对象（model）  
+
+创建项目：springboot官网产生pom.xml  
+新增依赖：mybatis/web/mysql驱动  
+
+创建上面的两个配置文件，如果没有提示，配置一下DTD文件  
+DTD文件描述xml由哪些标签组成，它会和eclipse配置形成提示  
+1）sqlMapConfig.xml (配置后不生效 eclipse)  
+2) ItemMapper.xml  
+
+最爱犯错：  
+Mapped Statements collection does not contain value for cn.tedu.jt.mapper.ItemMapper.find  
+1）命名空间和statement参数写的一致不一致  
+2）sqlMapConfig.xml中忘了导入xml文件  
+3）调用statement别写错了  
