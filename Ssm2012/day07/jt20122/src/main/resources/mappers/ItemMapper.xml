@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.jt.mapper.ItemMapper">
+	<!-- type返回主对象pojo -->
+	<resultMap type="Item" id="ItemItemDescRM">
+		<!-- 自身属性配置 -->
+		<id property="id" column="id"/>
+		<result property="title" column="title"/>
+		<result property="price" column="price"/>
+		
+		<!-- 关联关系：对一，assocaition POJO的关联对象名称
+			private ItemDesc itemDesc;
+		 -->
+		<association property="itemDesc">
+			<id property="itemId" column="item_id"/>
+			<result property="itemDesc" column="item_desc"/>
+		</association>
+	</resultMap>
+	
+	<!-- 查询，商品和商品详情关系 -->
+	<select id="findItem" resultMap="ItemItemDescRM">
+SELECT
+  t.id,t.title,t.price,
+  d.item_id,d.item_desc
+FROM tb_item t INNER JOIN tb_item_desc d
+ON t.id = d.item_id	
+	</select>
+</mapper>	
+
+
+

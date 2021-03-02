@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<!-- namespace命名空间，非常重要，一致 -->
+<mapper namespace="cn.tedu.jt.mapper.ItemMapper">
+	<!--  id属性，必须在这个命名空间下唯一
+		resultType 返回值类型，如果集合List，只写集合中元素类型
+		resultMap 先的构造映射规则，然后select标签引用新的规则
+	 -->
+	 
+	 <!--  定义映射规则，创建ResultMap标签，
+	 	type类型，指封装的pojo对象名称
+	 	id就是一个命名在这个文件中唯一，
+	 -->
+	 <resultMap type="cn.tedu.jt.pojo.Item" id="itemRM">
+	 	<!-- 写映射规则：sell_point，sellPoint ，如果字段名和属性名相同可以省略
+	 		property 值POJO对象id属性
+	 		colnumn 数据库表结果集中字段名
+	 		告诉mybatis，转换时，
+	 	-->
+	 	<result property="sellPoint" column="sell_point"/>
+	 </resultMap>
+	 
+	 <!--  需要一个参数：parameterType参数，java.lang.String，string -->
+	<select id="find"  parameterType="string"  resultMap="itemRM">
+SELECT * FROM tb_item
+ WHERE title LIKE #{title}
+	</select>
+	
+	<!-- 获取一条记录呢？get(id) 
+		resultMap返回一条，写元素类型 itemRM
+	-->
+	<select id="get" parameterType="long" resultMap="itemRM">
+SELECT * FROM tb_item
+ WHERE id = #{id}
+	</select>
+	
+	<!-- 获取记录总数，结果是一个值 -->
+	<select id="count" resultType="int">
+SELECT COUNT(*) FROM tb_item	
+	</select>
+	
+	<!-- 如果有多个值要传递进来，传入pojo对象，参数类型就是pojo对象
+		对象方式接收参数时，它的名称必须和pojo的属下名称一致，默认null
+		status状态值：1正常，2下架，3删除
+	 -->
+	<insert id="insert" parameterType="cn.tedu.jt.pojo.Item">
+INSERT INTO tb_item
+(id,title,sell_point,price,num,cid,STATUS,created,updated)
+VALUES(NULL, #{title},#{sellPoint}, #{price}, #{num}, #{cid}, 1, NOW(), NOW())
+	</insert>
+	
+	<update id="update" parameterType="cn.tedu.jt.pojo.Item">
+UPDATE tb_item 
+SET 
+	title = #{title},  
+	sell_point = #{sellPoint}, 
+	price = #{price},
+	num = #{num},
+	cid = #{cid},
+	status = #{status},
+	updated = now()
+WHERE id = #{id}
+	</update>
+	
+	<!-- long mybatis语法：string/int/long 
+		java.lang.Long java对象类型标准
+	 -->
+	<delete id="delete" parameterType="long">
+DELETE FROM tb_item
+WHERE id = #{id}
+	</delete>
+</mapper>
+
+
+
